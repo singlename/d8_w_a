@@ -783,15 +783,12 @@ $settings['entity_update_batch_size'] = 50;
 # if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
-$settings['trusted_host_patterns'] = [
-  '^localhost$',
-];
-$databases['default']['default'] = array(
-  'database' => 'drupal8',
-  'username' => 'drupal8',
-  'password' => 'drupal8',
+$databases['default']['default'] = array (
+  'database' => 'd8_myweb',
+  'username' => 'root',
+  'password' => '',
   'prefix' => '',
-  'host' => 'database',
+  'host' => 'localhost',
   'port' => '3306',
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
   'driver' => 'mysql',

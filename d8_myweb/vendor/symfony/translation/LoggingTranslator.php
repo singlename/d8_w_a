@@ -24,9 +24,6 @@ class LoggingTranslator implements TranslatorInterface, TranslatorBagInterface
      */
     private $translator;
 
-    /**
-     * @var LoggerInterface
-     */
     private $logger;
 
     /**
@@ -36,7 +33,7 @@ class LoggingTranslator implements TranslatorInterface, TranslatorBagInterface
     public function __construct(TranslatorInterface $translator, LoggerInterface $logger)
     {
         if (!$translator instanceof TranslatorBagInterface) {
-            throw new InvalidArgumentException(sprintf('The Translator "%s" must implement TranslatorInterface and TranslatorBagInterface.', get_class($translator)));
+            throw new InvalidArgumentException(sprintf('The Translator "%s" must implement TranslatorInterface and TranslatorBagInterface.', \get_class($translator)));
         }
 
         $this->translator = $translator;
@@ -92,7 +89,7 @@ class LoggingTranslator implements TranslatorInterface, TranslatorBagInterface
     /**
      * Gets the fallback locales.
      *
-     * @return array $locales The fallback locales
+     * @return array The fallback locales
      */
     public function getFallbackLocales()
     {
@@ -108,7 +105,7 @@ class LoggingTranslator implements TranslatorInterface, TranslatorBagInterface
      */
     public function __call($method, $args)
     {
-        return call_user_func_array(array($this->translator, $method), $args);
+        return \call_user_func_array(array($this->translator, $method), $args);
     }
 
     /**

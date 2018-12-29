@@ -1,0 +1,1 @@
+{"{\n  nodeById(id: \"1\") {\n    title\n    entityPublished\n    promote\n    ... on NodeArticle {\n      body {\n        value\n      }\n    }\n  }\n}\n": 1}

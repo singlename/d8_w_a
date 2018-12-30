@@ -41,7 +41,7 @@
         "drupal/graphql_json": "1.x-dev",
         "drupal/graphql_mutation": "1.x-dev",
         "drupal/graphql_views": "^1.0@beta",
-        "drush/drush": "^9.0.0",
+        "drush/drush": "^9.5",
         "vlucas/phpdotenv": "^2.4",
         "webflo/drupal-core-require-dev": "^8.6",
         "webflo/drupal-finder": "^1.0.0",

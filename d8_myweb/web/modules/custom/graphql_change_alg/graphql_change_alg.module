@@ -1,0 +1,60 @@
+<?php
+
+use \Drupal\graphql\Entity\QueryMap;
+use \Drupal\Core\Form\FormStateInterface;
+use \Drupal\file\FileInterface;
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function graphql_change_alg_form_graphql_query_map_import_form_alter(&$form, FormStateInterface $form_state, $form_id){
+  $form['actions']['submit']['#submit'] = ['graphql_change_alg_form_submit'];
+  $form['#validate'] = ['graphql_change_alg_form_validate'];
+  //dsm($form);
+}
+
+/**
+ * Implements hook_form_validate().
+ */
+function graphql_change_alg_form_validate(array &$form, FormStateInterface $formState) {
+  $files = file_save_upload('query_map_json', [
+    'file_validate_extensions' => ['json'], // Validate extensions.
+  ]);
+
+  /** @var \Drupal\file\FileInterface $file */
+  if (empty($files) || !($file = reset($files)) || !($file instanceof FileInterface)) {
+    $formState->setError($form['query_map_json'], t('No file was uploaded.'));
+  }
+  else {
+    // Save the file for use in the submit handler.
+    $formState->set('file', $file);
+    $json = file_get_contents($file->getFileUri());
+    $map = array_flip((array) json_decode($json));
+    $version = hash('sha256', reset($map));
+
+    if (QueryMap::exists($version)) {
+      $formState->setError($form['query_map_json'], t('A query map with the same version @version already exists.', ['@version' => $version]));
+    }
+  }
+}
+
+/**
+ * Implements hook_form_submit().
+ */
+function graphql_change_alg_form_submit($form, FormStateInterface $formState) {
+  $file = $formState->get('file');
+  $json = file_get_contents($file->getFileUri());
+
+  $map = array_flip((array) json_decode($json));
+  $entity = QueryMap::Create([
+    'version' => hash('sha256', reset($map)),
+    'map' => $map,
+  ]);
+  $entity->save();
+
+  drupal_set_message(t('Saved the query map version %id.', [
+    '%id' => $entity->id(),
+  ]));
+
+  $formState->setRedirect('entity.graphql_query_map.collection');
+}

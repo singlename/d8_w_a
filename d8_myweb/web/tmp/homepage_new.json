@@ -1,0 +1,148 @@
+{
+  "kind": "Document",
+  "definitions": [
+    {
+      "kind": "OperationDefinition",
+      "operation": "query",
+      "name": {
+        "kind": "Name",
+        "value": "getHomeNodeQuery"
+      },
+      "variableDefinitions": [],
+      "directives": [],
+      "selectionSet": {
+        "kind": "SelectionSet",
+        "selections": [
+          {
+            "kind": "Field",
+            "alias": null,
+            "name": {
+              "kind": "Name",
+              "value": "nodeById"
+            },
+            "arguments": [
+              {
+                "kind": "Argument",
+                "name": {
+                  "kind": "Name",
+                  "value": "id"
+                },
+                "value": {
+                  "kind": "StringValue",
+                  "value": "1"
+                }
+              }
+            ],
+            "directives": [],
+            "selectionSet": {
+              "kind": "SelectionSet",
+              "selections": [
+                {
+                  "kind": "Field",
+                  "alias": null,
+                  "name": {
+                    "kind": "Name",
+                    "value": "title"
+                  },
+                  "arguments": [],
+                  "directives": [],
+                  "selectionSet": null
+                },
+                {
+                  "kind": "Field",
+                  "alias": null,
+                  "name": {
+                    "kind": "Name",
+                    "value": "entityPublished"
+                  },
+                  "arguments": [],
+                  "directives": [],
+                  "selectionSet": null
+                },
+                {
+                  "kind": "Field",
+                  "alias": null,
+                  "name": {
+                    "kind": "Name",
+                    "value": "promote"
+                  },
+                  "arguments": [],
+                  "directives": [],
+                  "selectionSet": null
+                },
+                {
+                  "kind": "Field",
+                  "alias": null,
+                  "name": {
+                    "kind": "Name",
+                    "value": "__typename"
+                  },
+                  "arguments": [],
+                  "directives": [],
+                  "selectionSet": null
+                },
+                {
+                  "kind": "InlineFragment",
+                  "typeCondition": {
+                    "kind": "NamedType",
+                    "name": {
+                      "kind": "Name",
+                      "value": "NodeArticle"
+                    }
+                  },
+                  "directives": [],
+                  "selectionSet": {
+                    "kind": "SelectionSet",
+                    "selections": [
+                      {
+                        "kind": "Field",
+                        "alias": null,
+                        "name": {
+                          "kind": "Name",
+                          "value": "body"
+                        },
+                        "arguments": [],
+                        "directives": [],
+                        "selectionSet": {
+                          "kind": "SelectionSet",
+                          "selections": [
+                            {
+                              "kind": "Field",
+                              "alias": null,
+                              "name": {
+                                "kind": "Name",
+                                "value": "value"
+                              },
+                              "arguments": [],
+                              "directives": [],
+                              "selectionSet": null
+                            },
+                            {
+                              "kind": "Field",
+                              "alias": null,
+                              "name": {
+                                "kind": "Name",
+                                "value": "__typename"
+                              },
+                              "arguments": [],
+                              "directives": [],
+                              "selectionSet": null
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "loc": {
+    "start": 0,
+    "end": 283
+  }
+}

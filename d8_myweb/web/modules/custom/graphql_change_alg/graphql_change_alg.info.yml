@@ -1,0 +1,7 @@
+name: 'Graphql use sha256'
+type: module
+description: 'Graphql Query Map Change algorithm to match sha256'
+core: 8.x
+package: 'GraphQL'
+dependencies:
+  - graphql

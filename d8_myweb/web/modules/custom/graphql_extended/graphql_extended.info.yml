@@ -1,0 +1,7 @@
+name: 'graphql_extended'
+type: module
+description: 'Extended functionality for graphql'
+core: 8.x
+package: 'graphql'
+dependencies:
+  - graphql

@@ -1,0 +1,5 @@
+# Schema for the configuration files of the Basic theme.
+
+basic.settings:
+  type: theme_settings
+  label: 'Basic theme settings'

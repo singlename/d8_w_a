@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains graphql_extended.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function graphql_extended_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the graphql_extended module.
+    case 'help.page.graphql_extended':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Extended functionality for graphql') . '</p>';
+      return $output;
+
+    default:
+  }
+}

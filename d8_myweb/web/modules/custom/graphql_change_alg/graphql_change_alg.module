@@ -10,7 +10,6 @@ use \Drupal\file\FileInterface;
 function graphql_change_alg_form_graphql_query_map_import_form_alter(&$form, FormStateInterface $form_state, $form_id){
   $form['actions']['submit']['#submit'] = ['graphql_change_alg_form_submit'];
   $form['#validate'] = ['graphql_change_alg_form_validate'];
-  //dsm($form);
 }
 
 /**
@@ -51,8 +50,7 @@ function graphql_change_alg_form_submit($form, FormStateInterface $formState) {
     'map' => $map,
   ]);
   $entity->save();
-
-  drupal_set_message(t('Saved the query map version %id.', [
+  $this->messenger()->addStatus($this->t('Saved the query map version %id.', [
     '%id' => $entity->id(),
   ]));
 
